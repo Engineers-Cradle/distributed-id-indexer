@@ -19,10 +19,22 @@ NUM_WORKERS=
 LOG_LEVEL=
 ```
 
+### 🎁 Crates
+
+| Name | Description | Visit |
+|------|-------------|-------|
+| http | REST API Server for Retriving IDs from Redis | [Open](./crates/http/) |
+| pubsub | Redis Pub/Sub Server which saves IDs to Redis | [Open](./crates/pubsub/) |
+
 ### 🚀 Usage
 
 ```bash
-$ cargo run
+$ cargo run --bin http
+$ cargo run --bin pubsub
+
+// or
+
+$ docker-compose up
 ```
 
 ### 📝 License
