@@ -559,7 +559,26 @@ dependencies = [
 ]
 
 [[package]]
-name = "distributed-id-indexer"
+name = "distributed-id-indexer-http"
+version = "0.1.0"
+dependencies = [
+ "actix",
+ "actix-http",
+ "actix-web",
+ "dotenv",
+ "env_logger",
+ "lazy_static",
+ "listenfd",
+ "redis",
+ "serde",
+ "serde_json",
+ "tokio",
+ "tracing",
+ "tracing-actix-web",
+]
+
+[[package]]
+name = "distributed-id-indexer-pubsub"
 version = "0.1.0"
 dependencies = [
  "actix",

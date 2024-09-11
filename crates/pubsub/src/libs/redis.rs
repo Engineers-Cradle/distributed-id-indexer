@@ -3,7 +3,6 @@ use redis::AsyncCommands;
 pub async fn connection_to_redis(
     redis_url: &str,
 ) -> redis::Client {
-    // read the redis connection string from the environment
     let client: redis::Client = redis::Client::open(redis_url).unwrap();
     client
 }
@@ -33,11 +32,12 @@ pub async fn start_pub_sub() {
 
     pubsub.psubscribe("snowflake:id:set:*").unwrap();
 
+    println!("Subscribed to snowflake:id:set:*");
+
     loop {
         let msg = pubsub.get_message().unwrap();
         let payload: String = msg.get_payload().unwrap();
         
-        // Payload is in the format of "a-z:a-z:0-9"
         let payload_parts: Vec<&str> = payload.split(":").collect();
 
         if payload_parts.len() != 3 {
