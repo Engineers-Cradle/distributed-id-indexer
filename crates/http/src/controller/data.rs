@@ -46,7 +46,7 @@ async fn fetch_key(req: HttpRequest, info: web::Path<Retrievekey>, data: web::Da
         });
     }
 
-    let key: String = info.key.clone();
+    let key: String = format!("snowflake:id:{}", info.key.clone());
     let mut redis_multiplex_connection: redis::aio::MultiplexedConnection = data.redis_client.get_multiplexed_async_connection().await.unwrap();
 
     let value: String = get_value(&mut redis_multiplex_connection, &key).await;
