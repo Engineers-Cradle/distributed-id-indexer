@@ -17,3 +17,5 @@ lazy_static = "1.4"
 listenfd = "1.0.1"
 tracing-actix-web = "0.7"
 tracing = "0.1"
+jwtk = "0.3.0"
+reqwest = { version = "0.12", features = ["json"] }
