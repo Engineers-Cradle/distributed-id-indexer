@@ -1,9 +1,10 @@
 mod config;
 mod libs;
+mod functions;
 
 #[tokio::main]
 async fn main() {
-    let _ = libs::redis::start_pub_sub().await;
+    let _ = crate::functions::pubsub::start_pub_sub().await;
 
     println!("PubSub started");
 }
